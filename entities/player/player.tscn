@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://5qcjre4pi2ob"]
+
+[ext_resource type="Script" path="res://entities/player/player.gd" id="1_b1ame"]
+[ext_resource type="PackedScene" uid="uid://c181fvpb6n5km" path="res://entities/components/heathComponent.tscn" id="2_mji30"]
+[ext_resource type="PackedScene" uid="uid://3tc4wcs6ycp8" path="res://entities/components/hurtboxComponent.tscn" id="3_fb465"]
+[ext_resource type="Texture2D" uid="uid://bw37arjyf54nj" path="res://icon.svg" id="4_2y8wk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c2d8t"]
+size = Vector2(124, 124)
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_b1ame")
+
+[node name="health" parent="." instance=ExtResource("2_mji30")]
+
+[node name="hurtbox" parent="." instance=ExtResource("3_fb465")]
+collision_mask = 8
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.483301, 0.483301)
+texture = ExtResource("4_2y8wk")
+
+[node name="collisionShape" type="CollisionShape2D" parent="."]
+scale = Vector2(0.484401, 0.482038)
+shape = SubResource("RectangleShape2D_c2d8t")
+
+[editable path="hurtbox"]
