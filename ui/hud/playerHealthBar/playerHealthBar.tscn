@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mctsgadlya5v"]
+
+[ext_resource type="Texture2D" uid="uid://iyx6rbpgf2yq" path="res://ui/hud/playerHealthBar/simpleHealthBar.png" id="1_s4l65"]
+[ext_resource type="Script" path="res://ui/hud/playerHealthBar/playerHealthBar.gd" id="2_f3jyu"]
+
+[node name="playerHealthBar" type="TextureProgressBar"]
+scale = Vector2(1, 0.995091)
+value = 50.0
+texture_under = ExtResource("1_s4l65")
+texture_progress = ExtResource("1_s4l65")
+tint_under = Color(0.156863, 0.156863, 0.156863, 1)
+tint_progress = Color(1, 0, 0, 1)
+script = ExtResource("2_f3jyu")

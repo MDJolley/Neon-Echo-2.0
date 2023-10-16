@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://chw18e34rfy4h"]
+
+[ext_resource type="Texture2D" uid="uid://b8a0vpjkq6st6" path="res://maps/tiles/spike/spikeSprite.png" id="1_4vl5h"]
+[ext_resource type="PackedScene" uid="uid://bcuovmew56kd0" path="res://components/hitbox/hitbox.tscn" id="2_h04hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ar6me"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22qr4"]
+size = Vector2(144, 143)
+
+[node name="spike" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.30637, 6.30637)
+shape = SubResource("RectangleShape2D_ar6me")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.34557, 2.34557)
+texture = ExtResource("1_4vl5h")
+
+[node name="hitbox" parent="." instance=ExtResource("2_h04hm")]
+collision_layer = 8
+collision_mask = 1
+monitoring = false
+
+[node name="collisionShape" parent="hitbox" index="0"]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_22qr4")
+
+[node name="damageComponent" parent="hitbox" index="1" node_paths=PackedStringArray("source")]
+source = NodePath("../..")
+quantity = 1
+
+[editable path="hitbox"]

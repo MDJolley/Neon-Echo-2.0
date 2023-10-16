@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://4ib11osp8bj2"]
+
+[node name="semiSolid" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

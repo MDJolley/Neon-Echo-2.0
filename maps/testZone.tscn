@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c21q584li2aaq"]
+[gd_scene load_steps=5 format=3 uid="uid://c21q584li2aaq"]
 
 [ext_resource type="Texture2D" uid="uid://bw37arjyf54nj" path="res://icon.svg" id="1_du7tq"]
 [ext_resource type="PackedScene" uid="uid://5qcjre4pi2ob" path="res://entities/player/player.tscn" id="2_ysmx7"]
+[ext_resource type="PackedScene" uid="uid://chw18e34rfy4h" path="res://maps/tiles/spike/spike.tscn" id="3_r87fh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i2ig2"]
 size = Vector2(126, 126)
@@ -32,3 +33,6 @@ texture = ExtResource("1_du7tq")
 
 [node name="player" parent="." instance=ExtResource("2_ysmx7")]
 position = Vector2(447, 218)
+
+[node name="spike" parent="." instance=ExtResource("3_r87fh")]
+position = Vector2(135, 606)
