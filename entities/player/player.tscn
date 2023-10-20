@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://5qcjre4pi2ob"]
+[gd_scene load_steps=10 format=3 uid="uid://5qcjre4pi2ob"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_b1ame"]
 [ext_resource type="PackedScene" uid="uid://c181fvpb6n5km" path="res://components/health/heathComponent.tscn" id="2_mji30"]
 [ext_resource type="PackedScene" uid="uid://3tc4wcs6ycp8" path="res://components/hurtbox/hurtboxComponent.tscn" id="3_fb465"]
 [ext_resource type="Texture2D" uid="uid://bw37arjyf54nj" path="res://icon.svg" id="4_2y8wk"]
 [ext_resource type="PackedScene" uid="uid://mctsgadlya5v" path="res://ui/hud/playerHealthBar/playerHealthBar.tscn" id="5_7g1mp"]
+[ext_resource type="Material" uid="uid://dewtvupgb30gh" path="res://entities/player/effects/particles/dashParticles.tres" id="6_6mnmm"]
+[ext_resource type="Script" path="res://entities/player/movementController.gd" id="7_q1p2i"]
+[ext_resource type="Script" path="res://entities/player/effects/particles/particleEmitter.gd" id="8_bcv6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2d8t"]
 size = Vector2(124, 124)
@@ -33,6 +36,17 @@ collision_mask = 8
 
 [node name="heathComponent" parent="." instance=ExtResource("2_mji30")]
 maxHealth = 10
+
+[node name="movementController" type="Node2D" parent="."]
+script = ExtResource("7_q1p2i")
+
+[node name="ParticleEmitter" type="GPUParticles2D" parent="movementController"]
+emitting = false
+amount = 100
+process_material = ExtResource("6_6mnmm")
+lifetime = 0.5
+fixed_fps = 60
+script = ExtResource("8_bcv6w")
 
 [connection signal="area_entered" from="hurtboxComponent" to="heathComponent" method="processDamage"]
 [connection signal="healthChanged" from="heathComponent" to="playerHealthBar" method="updateHealthBar"]
